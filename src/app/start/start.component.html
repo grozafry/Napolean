@@ -2,12 +2,14 @@
 
 <h3>Deck ID : {{deck_id}}</h3>
 
+<div *ngIf='first'>
+    <input placeholder="Enter DEck ID" #deckid />
 
-<input placeholder="Enter DEck ID" #deckid />
+    <input placeholder="Enter Your name" #username />
 
-<input placeholder="Enter Your name" #username />
+    <input type="submit" value='Proceed' (click)='add_user_assign_cards(username.value, deckid.value)'  />
 
-<input type="submit" value='Proceed' (click)='add_user_assign_cards(username.value, deckid.value)'  />
+</div>
 
 
 <h2>Players --></h2>
@@ -38,10 +40,10 @@ Give to --> {{selected_player}}
 <input type="button" value="refresh" (click)='refresh_list()' />
 
 
-<h2>Your Cards --></h2>
+<h2>{{pile_name}} Cards --></h2>
 
 <span *ngFor='let card of user_cards'>
 
-    <img src={{card.image}}  (click)='select_card(card.code)'  />
+    <img src={{card.image}} style="width: 80px; height: 120px" (click)='select_card(card.code)'  />
 
 </span>

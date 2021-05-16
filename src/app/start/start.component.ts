@@ -16,6 +16,8 @@ export class StartComponent implements OnInit {
   selected_card: any;
   selected_player: any;
 
+  first: any = true;
+
   constructor(private dataSvc: DataserviceService,) { }
 
   ngOnInit(): void {
@@ -53,7 +55,7 @@ export class StartComponent implements OnInit {
 
               this.user_cards = res["piles"][this.pile_name]["cards"]
 
-
+              this.first = false;
               console.log("user_cards")
               console.log(this.user_cards)
 
