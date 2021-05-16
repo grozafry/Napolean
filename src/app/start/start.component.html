@@ -1,0 +1,47 @@
+<input type="submit" (click)='create_deck()' value="Create Deck" />
+
+<h3>Deck ID : {{deck_id}}</h3>
+
+
+<input placeholder="Enter DEck ID" #deckid />
+
+<input placeholder="Enter Your name" #username />
+
+<input type="submit" value='Proceed' (click)='add_user_assign_cards(username.value, deckid.value)'  />
+
+
+<h2>Players --></h2>
+
+
+<li *ngFor='let pile of piles_list|keyvalue' (click)='select_player(pile.key)'>
+    {{pile.key}}
+
+</li>
+
+<br/>
+
+
+<br />
+<br />
+<br />
+
+Selected Card --> {{selected_card}}
+<br />
+Give to --> {{selected_player}}
+<br />
+<input type="button" value="transfer" (click)='transfer_card()' />
+
+<br />
+<br />
+<br />
+
+<input type="button" value="refresh" (click)='refresh_list()' />
+
+
+<h2>Your Cards --></h2>
+
+<span *ngFor='let card of user_cards'>
+
+    <img src={{card.image}}  (click)='select_card(card.code)'  />
+
+</span>
